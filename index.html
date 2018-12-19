@@ -16,13 +16,22 @@
 
     <script type="text/babel">
       class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            day: new Date(),
+          }
+        }
         render() {
           return (
-            <h1>Hello React!</h1>
+            <div>
+              <h1>Hello {this.props.name}!</h1>
+              <h2>{this.state.day.toLocaleTimeString()}</h2>
+            </div>
           );
         }
       }
-      ReactDOM.render(<App />, document.getElementById('root'));
+      ReactDOM.render(<App name="Grace"/>, document.getElementById('root'));
     </script>
 
 </body>

@@ -11,7 +11,7 @@ class App extends Component {
         { description: 'Throw the dishes away', isCompleted: false },
         { description: 'Buy new dishes', isCompleted: false }
       ],
-      newToDoDescription: ''
+      newTodoDescription: ''
     };
   }
   handleSubmit(e) {
@@ -25,6 +25,9 @@ class App extends Component {
     const todo = todos[index];
     todo.isCompleted = todo.isComplete ? false:true;
     this.setState({ todos: todos});
+  }
+  handleChange(e) {
+    this.setState({ newTodoDescription: e.target.value});
   }
   render() {
     return (

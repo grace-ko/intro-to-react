@@ -19,6 +19,7 @@ class App extends Component {
     if (!this.state.newTodoDescription) { return }
     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
     this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
+    document.getElementById('toDoForm').reset();
   }
   toggleComplete(index) {
     const todos = this.state.todos.slice();
@@ -43,7 +44,7 @@ class App extends Component {
              <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } deleteTodo={ () => this.deleteTodo(index) } />
           )}
         </ul>
-        <form onSubmit={ (e) => this.handleSubmit(e) }>
+        <form onSubmit={ (e) => this.handleSubmit(e) } id="toDoForm">
           <input type="text" value={ this.state.newToDoDescription } onChange={ (e) => this.handleChange(e) } />
           <input type="submit" />
         </form>
